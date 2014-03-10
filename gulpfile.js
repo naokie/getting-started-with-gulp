@@ -50,3 +50,7 @@ gulp.task('clean', function() {
     return gulp.src(['dist/assets/css', 'dist/assets/js', 'dist/assets/img'], { read: false })
         .pipe(clean());
 });
+
+gulp.task('default', ['clean'], function() {
+    gulp.start('styles', 'scripts', 'images');
+});
