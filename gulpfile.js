@@ -45,3 +45,8 @@ gulp.task('images', function() {
         .pipe(livereload(server))
         .pipe(notify({ message: 'Images task complete' }));
 });
+
+gulp.task('clean', function() {
+    return gulp.src(['dist/assets/css', 'dist/assets/js', 'dist/assets/img'], { read: false })
+        .pipe(clean());
+});
