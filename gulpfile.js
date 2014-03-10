@@ -24,3 +24,16 @@ gulp.task('styles', function() {
         .pipe(livereload(server))
         .pipe(notify({ message: 'Styles task complete' }));
 });
+
+gulp.task('scripts', function() {
+    return gulp.src('src/scripts/**/*.js')
+        .pipe(jshint('.jshintrc'))
+        .pipe(jshint.reporter('default'))
+        .pipe(concat('main.js'))
+        .pipe(gulp.dest('dist/assets/js'))
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/assets/js'))
+        .pipe(livereload(server))
+        .pipe(notify({ message: 'Scripts task complete'}));
+});
