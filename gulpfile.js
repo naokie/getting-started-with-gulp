@@ -37,3 +37,11 @@ gulp.task('scripts', function() {
         .pipe(livereload(server))
         .pipe(notify({ message: 'Scripts task complete'}));
 });
+
+gulp.task('images', function() {
+    return gulp.src('src/images/**/*')
+        .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
+        .pipe(gulp.dest('dist/assets/img'))
+        .pipe(livereload(server))
+        .pipe(notify({ message: 'Images task complete' }));
+});
