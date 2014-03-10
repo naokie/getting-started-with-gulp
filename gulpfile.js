@@ -54,3 +54,9 @@ gulp.task('clean', function() {
 gulp.task('default', ['clean'], function() {
     gulp.start('styles', 'scripts', 'images');
 });
+
+gulp.task('watch', function() {
+    gulp.watch('src/styles/**/*.scss', ['styles']);
+    gulp.watch('src/scripts/**/*.js', ['scripts']);
+    gulp.watch('src/images/**/*', ['images']);
+});
